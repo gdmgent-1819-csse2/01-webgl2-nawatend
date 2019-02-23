@@ -2,7 +2,10 @@ export default class Matrix3 {
     constructor(points) {
         this.points = points || [0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
-
+    /**
+     * 
+     * @param {Matrix3} m 
+     */
     add(m) {
 
         let a = this.points;
@@ -12,10 +15,14 @@ export default class Matrix3 {
         }
 
         this.points = a;
-        console.log(this.points);
 
+        console.log(this.points);
     }
 
+    /**
+     * 
+     * @param {Matrix3} m 
+     */
     sub(m) {
         const a = this.points;
 
@@ -29,6 +36,10 @@ export default class Matrix3 {
         console.log(this.points);
     }
 
+    /**
+     * 
+     * @param {Matrix3} m 
+     */
     mul(m) {
         const a = this.points;
         let result = [0, 0, 0, 0, 0, 0, 0, 0, 0];

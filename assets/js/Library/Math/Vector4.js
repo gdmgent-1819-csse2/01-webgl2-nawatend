@@ -24,17 +24,18 @@ export default class Vector4 {
         this.y += v.y;
         this.z += v.z;
         this.i += v.i;
+        return this;
     }
     /**
      * Subtraction
      * @param {Vector4} v
      */
-    subt(v) {
+    sub(v) {
         this.x -= v.x;
         this.y -= v.y;
         this.z -= v.z;
         this.i -= v.i;
-
+        return this;
     }
 
     /**
@@ -42,11 +43,11 @@ export default class Vector4 {
      * @param {Number} a
      */
     scalar(a) {
-        this.x *= v.x;
-        this.y *= v.y;
-        this.z *= v.z;
-        this.i *= v.i;
-
+        this.x *= a;
+        this.y *= a;
+        this.z *= a;
+        this.i *= a;
+        return this;
     }
 
     /**

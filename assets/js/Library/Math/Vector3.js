@@ -16,24 +16,24 @@ export default class Vector3 {
 
     /**
      * Addition
-     * @param {Vector4} v
+     * @param {Vector3} v
      */
     add(v) {
 
         this.x += v.x;
         this.y += v.y;
         this.z += v.z;
-
+        return this;
     }
     /**
      * Subtraction
-     * @param {Vector4} v
+     * @param {Vector3} v
      */
-    subt(v) {
+    sub(v) {
         this.x -= v.x;
         this.y -= v.y;
         this.z -= v.z;
-
+        return this;
 
     }
 
@@ -42,11 +42,11 @@ export default class Vector3 {
      * @param {Number} a
      */
     scalar(a) {
-        this.x *= v.x;
-        this.y *= v.y;
-        this.z *= v.z;
+        this.x *= a;
+        this.y *= a;
+        this.z *= a;
 
-
+        return this;
     }
 
     /**
@@ -61,7 +61,6 @@ export default class Vector3 {
      * Dot Product
      * @param {Vector4} v
      */
-
     dotProduct(v) {
 
 

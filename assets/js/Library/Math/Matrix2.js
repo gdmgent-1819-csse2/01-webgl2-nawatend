@@ -3,11 +3,14 @@ export default class Matrix2 {
         this.points = points || [0, 0, 0, 0]
     }
 
+    /**
+     * 
+     * @param {Matrix2} m 
+     */
     add(m) {
 
         let a = this.points;
-        console.log(a.length);
-        console.log(a);
+
         for (let i = 0; i < a.length; i++) {
 
             a[i] += m.points[i];
@@ -15,10 +18,15 @@ export default class Matrix2 {
         }
 
         this.points = a;
-        console.log(a);
+
+        console.log(this.points);
 
     }
 
+    /**
+     * 
+     * @param {Matrix2} m 
+     */
     sub(m) {
         const a = this.points;
 
@@ -29,12 +37,16 @@ export default class Matrix2 {
         }
 
         this.points = a;
+        console.log(this.points);
 
     }
 
+    /**
+     * 
+     * @param {Matrix2} m 
+     */
     mul(m) {
         const a = this.points;
-
 
         a[0] = a[0] * m.points[0] + a[1] * m.points[3];
         a[1] = a[0] * m.points[1] + a[1] * m.points[3];
@@ -44,6 +56,7 @@ export default class Matrix2 {
 
 
         this.points = a;
+        console.log(this.points);
 
     }
 }

@@ -20,15 +20,16 @@ export default class Vector2 {
         this.x += v.x;
         this.y += v.y;
 
+        return this;
     }
     /**
      * Subtraction
      * @param {Vector2} v
      */
-    subt(v) {
+    sub(v) {
         this.x -= v.x;
         this.y -= v.y;
-
+        return this;
     }
 
     /**
@@ -38,7 +39,7 @@ export default class Vector2 {
     scalar(a) {
         this.x *= a;
         this.y *= a;
-
+        return this;
     }
 
     /**
@@ -53,10 +54,8 @@ export default class Vector2 {
      * Dot Product
      * @param {Vector2} v
      */
-
     dotProduct(v) {
-
-
-        return this.x * v.x + this.y * v.y;
+        let dotProductValue = this.x * v.x + this.y * v.y;
+        return dotProductValue;
     }
 }

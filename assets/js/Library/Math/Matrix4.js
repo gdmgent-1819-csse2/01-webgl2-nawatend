@@ -3,6 +3,10 @@ export default class Matrix4 {
         this.points = points || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 
+    /**
+     * 
+     * @param {Matrix4} m 
+     */
     add(m) {
 
         let a = this.points;
@@ -12,10 +16,14 @@ export default class Matrix4 {
         }
 
         this.points = a;
-        console.log(this.points);
 
+        console.log(this.points);
     }
 
+    /**
+     * 
+     * @param {Matrix4} m 
+     */
     sub(m) {
         const a = this.points;
 
@@ -28,6 +36,10 @@ export default class Matrix4 {
         console.log(this.points);
     }
 
+    /**
+     * 
+     * @param {Matrix4} m 
+     */
     mul(m) {
         const a = this.points;
         let result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -42,7 +54,7 @@ export default class Matrix4 {
         }
 
         this.points = result;
-        console.log(this.points);
 
+        console.log(this.points);
     }
 }
