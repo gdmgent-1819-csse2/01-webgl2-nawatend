@@ -89,6 +89,7 @@ export default class Matrix3 {
     /**
      * Rotate the matrix around the origin.
      * @param {Number} degree - The anticlockwise angle in degrees.
+     * @param {String} axis - which axis to rotate
      */
     rot(degree, axis) {
 
