@@ -71,7 +71,10 @@ export default class Application {
         m1.sub(m2);
 
         console.log("mul: m1 * m2")
-        m1.mul(m2);
+        m1.mulByMatrix2(m2);
+
+        console.log("rot by 45 degree: m1 ")
+        m1.rot(45);
 
 
 
@@ -88,7 +91,9 @@ export default class Application {
         m3.sub(m4);
 
         console.log("mul: m3 * m4")
-        m3.mul(m4);
+        m3.mulByMatrix3(m4);
+        console.log("rot 45 degree z(roll): m3 ")
+        m3.rot(45, "z");
 
         console.log("-----------------------------Matrix4------------------------------------");
         const m5 = new Matrix4([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
@@ -101,7 +106,10 @@ export default class Application {
         m5.sub(m6);
 
         console.log("mul: m5 * m6")
-        m5.mul(m6);
+        m5.mulByMatrix4(m6);
+
+        console.log("rot 45degree: m5")
+        m5.rot(45, "y");
     }
 
 

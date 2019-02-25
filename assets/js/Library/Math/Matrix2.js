@@ -45,7 +45,7 @@ export default class Matrix2 {
      * 
      * @param {Matrix2} m 
      */
-    mul(m) {
+    mulByMatrix2(m) {
         const a = this.points;
 
         a[0] = a[0] * m.points[0] + a[1] * m.points[3];
@@ -54,9 +54,45 @@ export default class Matrix2 {
         a[3] = a[2] * m.points[1] + a[3] * m.points[3];
 
 
+        this.points = a;
+        console.log(this.points);
+
+    }
+
+    /**
+     * 
+     * @param {Array} mPoints 
+     */
+    mulByPoints(mPoints) {
+        const a = this.points;
+
+        a[0] = a[0] * mPoints[0] + a[1] * mPoints[3];
+        a[1] = a[0] * mPoints[1] + a[1] * mPoints[3];
+        a[2] = a[2] * mPoints[0] + a[3] * mPoints[2];
+        a[3] = a[2] * mPoints[1] + a[3] * mPoints[3];
+
 
         this.points = a;
         console.log(this.points);
 
+    }
+
+
+
+    /**
+     * Rotate the matrix around the origin.
+     * @param {Number} α - The anticlockwise angle in degrees.
+     */
+    rot(degree) {
+        degree *= Math.PI / 180
+        const cos = Math.cos(degree)
+        const sin = Math.sin(degree)
+        const a = this.points
+        const r = [
+            cos, -sin,
+            sin, cos,
+        ]
+        this.points = r
+        this.mulByPoints(a)
     }
 }
