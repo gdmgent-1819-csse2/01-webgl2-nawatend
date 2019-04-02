@@ -27,7 +27,6 @@ export default class Matrix2 {
     sub(m) {
         const a = this.points;
 
-
         for (let i = 0; i < 4; i++) {
 
             a[i] -= m.points[i];
@@ -50,10 +49,8 @@ export default class Matrix2 {
         c[2] = a[2] * m.points[0] + a[3] * m.points[2];
         c[3] = a[2] * m.points[1] + a[3] * m.points[3];
 
-
         this.points = c;
         console.log(this.points);
-
     }
 
     /**
@@ -68,13 +65,8 @@ export default class Matrix2 {
         c[2] = a[2] * mPoints[0] + a[3] * mPoints[2];
         c[3] = a[2] * mPoints[1] + a[3] * mPoints[3];
 
-
         this.points = c;
-
-
     }
-
-
 
     /**
      * Rotate the matrix around the origin.
@@ -84,16 +76,12 @@ export default class Matrix2 {
         degree *= Math.PI / 180
         const cos = Math.cos(degree)
         const sin = Math.sin(degree)
-        const a = this.points
-        const r = [
+        const points = this.points
+        const rotattionMatrix = [
             cos, -sin,
             sin, cos,
         ]
-        this.points = r
-        this.mulByPoints(a)
+        this.points = rotattionMatrix
+        this.mulByPoints(points)
     }
-
-
-
-
 }

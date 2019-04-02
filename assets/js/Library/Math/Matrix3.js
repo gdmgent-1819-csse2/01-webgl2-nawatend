@@ -13,10 +13,7 @@ export default class Matrix3 {
         for (let i = 0; i < a.length; i++) {
             a[i] += m.points[i];
         }
-
         this.points = a;
-
-        console.log(this.points);
     }
 
     /**
@@ -25,13 +22,10 @@ export default class Matrix3 {
      */
     sub(m) {
         const a = this.points;
-
-
         for (let i = 0; i < a.length; i++) {
 
             a[i] -= m.points[i];
         }
-
         this.points = a;
         console.log(this.points);
     }
@@ -44,8 +38,6 @@ export default class Matrix3 {
         const a = this.points;
         let result = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         const n = 3;
-
-
 
         for (var k = 0; k <= 6; k += n) {
             for (var i = 0; i < n; i++) {
@@ -69,8 +61,6 @@ export default class Matrix3 {
         let result = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         const n = 3;
 
-
-
         for (var k = 0; k <= 6; k += n) {
             for (var i = 0; i < n; i++) {
                 for (var j = 0, bCount = 0; j < n; j++, bCount += n) {
@@ -84,8 +74,6 @@ export default class Matrix3 {
 
     }
 
-
-
     /**
      * Rotate the matrix around the origin.
      * @param {Number} degree - The anticlockwise angle in degrees.
@@ -96,33 +84,32 @@ export default class Matrix3 {
         degree *= Math.PI / 180
         const cos = Math.cos(degree)
         const sin = Math.sin(degree)
-        const a = this.points
-        let r = [];
+        const points = this.points
+
+        let rotationMatrix = [];
 
 
         if (axis == 'x') {
-            r = [
+            rotationMatrix = [
                 1, 0, 0,
                 0, cos, -sin,
                 0, sin, cos
             ]
         } else if (axis == 'y') {
-            r = [
+            rotationMatrix = [
                 cos, 0, sin,
                 0, 1, 0,
                 -sin, 0, cos
             ]
         } else if (axis == 'z') {
-            r = [
+            rotationMatrix = [
                 cos, -sin, 0,
                 sin, cos, 0,
                 0, 0, 1
             ]
         }
 
-        this.points = r
-        this.mulByPoints(a)
-
-
+        this.points = rotationMatrix
+        this.mulByPoints(points)
     }
 }

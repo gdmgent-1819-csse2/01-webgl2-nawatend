@@ -62,8 +62,6 @@ export default class Vector3 {
      * @param {Vector4} v
      */
     dotProduct(v) {
-
-
         return this.x * v.x + this.y * v.y + this.z * v.z;
     }
 }

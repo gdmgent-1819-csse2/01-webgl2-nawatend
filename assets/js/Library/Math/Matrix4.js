@@ -92,26 +92,26 @@ export default class Matrix4 {
         degree *= Math.PI / 180
         const cos = Math.cos(degree)
         const sin = Math.sin(degree)
-        const a = this.points
-        let r = [];
+        const points = this.points
+        let rotationMatrix = [];
 
 
         if (axis === 'x') {
-            r = [
+            rotationMatrix = [
                 1, 0, 0, 0,
                 0, cos, -sin, 0,
                 0, sin, cos, 0,
                 0, 0, 0, 1
             ]
         } else if (axis === 'y') {
-            r = [
+            rotationMatrix = [
                 cos, 0, sin, 0,
                 0, 1, 0, 0,
                 sin, 0, cos,
                 0, 0, 0, 1
             ]
         } else if (axis === 'z') {
-            r = [
+            rotationMatrix = [
                 cos, -sin, 0, 0,
                 sin, cos, 0, 0,
                 0, 0, 1, 0,
@@ -119,8 +119,8 @@ export default class Matrix4 {
             ]
         }
 
-        this.points = r
-        this.mulByPoints(a)
+        this.points = rotationMatrix
+        this.mulByPoints(points)
 
 
     }

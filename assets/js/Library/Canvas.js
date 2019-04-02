@@ -28,7 +28,6 @@ export default class Canvas {
         this.run()
 
         window.addEventListener('updateCanvas', event => {
-            this.updateCanvasHandler(event)
 
 
             //update every second
@@ -62,14 +61,14 @@ export default class Canvas {
             //TODO: draw clock
 
             //calculate angle
-            let d, h, m, s;
-            d = new Date;
+            let dateTime, hours, minutes, seconds;
+            dateTime = new Date;
 
-            h = 30 * ((d.getHours() % 12) + d.getMinutes() / 60);
-            m = 6 * d.getMinutes();
-            s = 6 * d.getSeconds();
+            hours = 30 * ((dateTime.getHours() % 12) + dateTime.getMinutes() / 60);
+            minutes = 6 * dateTime.getMinutes();
+            seconds = 6 * dateTime.getSeconds();
 
-            console.log(h, m, s)
+            console.log(hours, minutes, seconds)
 
             //middle point
             let middlePoint = new Vector2(0, 0)
@@ -79,40 +78,33 @@ export default class Canvas {
 
             //hour hand
             const hourHand = new Vector2(0, 0.3)
-            hourHand.rot(-h)
+            hourHand.rot(-hours)
             this.data.positions.push(hourHand.x, hourHand.y)
             this.data.colors.push(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255), 0)
 
 
             //minute hand
             const minuteHand = new Vector2(0, 0.4)
-            minuteHand.rot(-m)
+            minuteHand.rot(-minutes)
             this.data.positions.push(minuteHand.x, minuteHand.y)
             this.data.colors.push(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255), 0)
 
 
             //second hand
             let secondHand = new Vector2(0, 0.5)
-            secondHand.rot(-s)
+            secondHand.rot(-seconds)
             this.data.positions.push(secondHand.x, secondHand.y)
             this.data.colors.push(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255), 0)
 
 
+            this.data.positions.push([0, 0.3, 0, 0.4, 0, 0.5])
+            const v = new Vector2(.5, 0)
+            for (let i = 0, max = 12; i < max; i++) {
+                v.rot(30)
 
-
-
-            // this.data.positions.push([0, 0.3, 0, 0.4, 0, 0.5])
-            // const v = new Vector2(.5, 0)
-            // for (let i = 0, max = 12; i < max; i++) {
-            //     v.rot(30)
-
-            //     this.data.positions.push(v.x, v.y)
-            //     this.data.colors.push(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255), 0)
-            // }
-
-
-
-
+                this.data.positions.push(v.x, v.y)
+                this.data.colors.push(...this.colors.yellow)
+            }
 
             // White point in the middle.
             this.data.positions.push(0, 0)
@@ -306,11 +298,11 @@ export default class Canvas {
         const first = 0
         const count = this.data.positions.length / dimensions
 
-        // const handCount = this.data.hands.length / 4
-        // gl.drawArrays(gl.LINES, first, handCount) // @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawArrays
+
+
         gl.drawArrays(mode, first, count) // @see https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawArrays
 
-        // Call drawScene again next frame
+        // Call drawScene again next frame, doesnt work
         //requestAnimationFrame(drawScene);
     }
 }

@@ -61,11 +61,11 @@ export default class Vector2 {
      * @param {Number} α - The anticlockwise angle in degrees.
      */
     rot(a) {
-        const m = new Matrix2([this.x, 0, this.y, 0])
-        m.rot(a)
+        const currentMatrix2 = new Matrix2([this.x, 0, this.y, 0])
+        currentMatrix2.rot(a)
 
 
-        this.x = m.points[0]
-        this.y = m.points[2]
+        this.x = currentMatrix2.points[0]
+        this.y = currentMatrix2.points[2]
     }
 }

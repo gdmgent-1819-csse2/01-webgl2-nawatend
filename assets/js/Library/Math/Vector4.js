@@ -64,8 +64,6 @@ export default class Vector4 {
      */
 
     dotProduct(v) {
-
-
         return this.x * v.x + this.y * v.y + this.z * v.z + this.i * v.i;
     }
 }
